@@ -2,6 +2,8 @@
 
 An example project to show usage of the the GC9A01 (display) and CST816S (touch) with the RP2040 in Arduino.
 
+<img src="/images/rp2040-touch-lcd-1.28-1_1.jpg" width="150" height="150">
+
 [Waveshare Round 1.28](https://www.waveshare.com/product/rp2040-touch-lcd-1.28.htm)
 
 [Waveshare Docs](https://www.waveshare.com/wiki/RP2040-Touch-LCD-1.28)
@@ -73,3 +75,11 @@ void my_touchpad_read(lv_indev_drv_t *indev_drv, lv_indev_data_t *data) {
   touch_flag = 0;
 }
 ```
+
+## Result
+
+A very simple GUI. Push the button to go to screen 2, push it again to return to screen 1.
+
+<img src="/images/Screenshot 2024-04-28 194254.png" width="300" height="170">
+
+
