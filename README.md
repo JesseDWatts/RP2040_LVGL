@@ -71,5 +71,3 @@ void my_touchpad_read(lv_indev_drv_t *indev_drv, lv_indev_data_t *data) {
   touch_flag = 0;
 }
 ```
-
->>>>>>> 77b524200b70b5dd0b3ca61ef1d31b03c14cee43
