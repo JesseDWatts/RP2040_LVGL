@@ -1,6 +1,6 @@
 # Arduino Project for Wavshare RP2040 1.28 Round TFT
 
-An example project to show usage of the the GC9A01 (display) and CST816S (touch) on the RP2040 in Arduino.
+An example project to show usage of the the GC9A01 (display) and CST816S (touch) with the RP2040 in Arduino.
 
 [Waveshare Round 1.28](https://www.waveshare.com/product/rp2040-touch-lcd-1.28.htm)
 
@@ -20,6 +20,7 @@ User_Setup.h is the only file that needed changing. Most importantly defining th
 ## CST816S
 
 The touch controller is a CST816S. Most libraries I found are specifically for the ESP. Waveshares demo code included the libraries I have used.
+
 **Initialise:**
 
 ```
@@ -32,6 +33,10 @@ uint8_t touch_flag = 0;
 **In your Setup():**
 
 ```
+  if (DEV_Module_Init() != 0)
+    Serial.println("GPIO Init Fail!");
+  else
+    Serial.println("GPIO Init successful!");
   CST816S_init(CST816S_ALL_Mode);
   DEV_KEY_Config(Touch_INT_PIN);
   attachInterrupt(Touch_INT_PIN, &Touch_INT_callback, RISING);
@@ -59,10 +64,7 @@ void my_touchpad_read(lv_indev_drv_t *indev_drv, lv_indev_data_t *data) {
 
   // Check if touch coordinates are within a reasonable range
   if (touch_flag == 1) {
-    data->state = LV_INDEV_STATE_PR; // Set state to pressed
-    data->point.x = last_x;  // Set pressed coordinates
-    data->point.y = last_y;  
-
+    data->state = LV_INDEV_STATE_PR; // Set state to pressed 
   } else {
     data->state = LV_INDEV_STATE_REL; // Set state to released
   }
@@ -71,5 +73,3 @@ void my_touchpad_read(lv_indev_drv_t *indev_drv, lv_indev_data_t *data) {
   touch_flag = 0;
 }
 ```
-
->>>>>>> 77b524200b70b5dd0b3ca61ef1d31b03c14cee43
