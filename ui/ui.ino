@@ -2,7 +2,6 @@
 #include <TFT_eSPI.h>
 #include <ui.h>
 #include "hardware/gpio.h"
-
 #include <CST816S.h>
 
 /*Don't forget to set Sketchbook location in File/Preferencesto the path of your UI project (the parent foder of this INO file)*/
@@ -14,10 +13,9 @@ static const uint16_t screenHeight = 240;
 static lv_disp_draw_buf_t draw_buf;
 static lv_color_t buf[screenWidth * screenHeight / 10];
 
-TFT_eSPI tft = TFT_eSPI(screenWidth, screenHeight);
- /* TFT instance */
+TFT_eSPI tft = TFT_eSPI(screenWidth, screenHeight); /* TFT instance */
 
-CST816S myTouch();
+CST816S myTouch(); 
 void Touch_INT_callback();
 uint8_t touch_flag = 0;
 
@@ -50,17 +48,12 @@ void my_touchpad_read(lv_indev_drv_t *indev_drv, lv_indev_data_t *data) {
   // Check if touch coordinates are within a reasonable range
   if (touch_flag == 1) {
     data->state = LV_INDEV_STATE_PR;
-    data->point.x = last_x;           // Set pressed coordinates
-    data->point.y = last_y;  // Set state to pressed
-
   } else {
     data->state = LV_INDEV_STATE_REL;
   }
   data->point.x = last_x;           // Set pressed coordinates
   data->point.y = last_y; 
   touch_flag = 0;
-  // Serial.printf("X:%d Y:%d\r\n", last_x, last_y);  // Print touch coordinates
-  // Serial.printf("actual: X:%d Y:%d\r\n", data->point.x, data->point.y);
 }
 
 
@@ -93,7 +86,7 @@ void setup() {
   LVGL_Arduino += String('V') + lv_version_major() + "." + lv_version_minor() + "." + lv_version_patch();
 
   Serial.println(LVGL_Arduino);
-  Serial.println("I am LVGL_Arduino");
+  Serial.println("I am LVGL_Ard uino");
 
   lv_init();
 
