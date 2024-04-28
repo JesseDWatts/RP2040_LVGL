@@ -33,6 +33,10 @@ uint8_t touch_flag = 0;
 **In your Setup():**
 
 ```
+  if (DEV_Module_Init() != 0)
+    Serial.println("GPIO Init Fail!");
+  else
+    Serial.println("GPIO Init successful!");
   CST816S_init(CST816S_ALL_Mode);
   DEV_KEY_Config(Touch_INT_PIN);
   attachInterrupt(Touch_INT_PIN, &Touch_INT_callback, RISING);
