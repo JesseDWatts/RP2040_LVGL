@@ -20,6 +20,7 @@ User_Setup.h is the only file that needed changing. Most importantly defining th
 ## CST816S
 
 The touch controller is a CST816S. Most libraries I found are specifically for the ESP. Waveshares demo code included the libraries I have used.
+
 **Initialise:**
 
 ```
@@ -59,10 +60,7 @@ void my_touchpad_read(lv_indev_drv_t *indev_drv, lv_indev_data_t *data) {
 
   // Check if touch coordinates are within a reasonable range
   if (touch_flag == 1) {
-    data->state = LV_INDEV_STATE_PR; // Set state to pressed
-    data->point.x = last_x;  // Set pressed coordinates
-    data->point.y = last_y;  
-
+    data->state = LV_INDEV_STATE_PR; // Set state to pressed 
   } else {
     data->state = LV_INDEV_STATE_REL; // Set state to released
   }
