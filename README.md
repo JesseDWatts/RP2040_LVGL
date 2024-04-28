@@ -1,6 +1,6 @@
 # Arduino Project for Wavshare RP2040 1.28 Round TFT
 
-An example project to show usage of the the GC9A01 (display) and CST816S (touch) on the RP2040 in Arduino.
+An example project to show usage of the the GC9A01 (display) and CST816S (touch) with the RP2040 in Arduino.
 
 [Waveshare Round 1.28](https://www.waveshare.com/product/rp2040-touch-lcd-1.28.htm)
 
